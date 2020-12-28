@@ -1,0 +1,4 @@
+﻿Tên đề tài: COOKING GAS CONSUMPTION AND COST
+Link dataset: https://data.cityofnewyork.us/Housing-Development/Cooking-Gas-Consumption-And-Cost-2010-Mar-2019-/avhb-5jhc
+Bộ dữ liệu vẫn đang được cập nhật theo thời gian, tụi em có đính kèm 
+file tại thời điểm download là dữ liệu tới tháng 3-2019.

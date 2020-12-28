@@ -1,0 +1,200 @@
+﻿/*
+Câu 1: Thống kê tổng chi phí hóa đơn theo tháng doanh thu. (FACT, DIM_REVENUE_MONTH)
+*/
+SELECT [Measures].[Current Charges] on columns,
+([DIM REVENUE MONTH].[Year_Month_hierarchy].members) on rows
+FROM [Consumption Gas DW];
+
+
+/*
+Câu 2: Thống kê 3 quận (BOROUGH) có tổng mức tiêu thụ nhiệt giảm dần đối với 
+nhà cung cấp tiện ích chính là NatGrid NYC (FACT, DIM_BOROUGH, DIM_UNDERLYING_UTILITY)
+*/
+SELECT [Measures].[Consumption] on columns,
+NON EMPTY(
+		SUBSET(
+				ORDER([DIM BOROUGH].[Borough].children,
+				([Measures].[Consumption],[DIM UNDERLYING UTILITY].[Underlying Utility].&[NatGrid NYC]),
+				DESC),
+				0,
+				3)) on rows
+FROM [Consumption Gas DW]
+WHERE [DIM UNDERLYING UTILITY].[Underlying Utility].&[NatGrid NYC];
+					
+
+/*
+Câu 3: Thống kê top 3 quận có tổng lượng tiêu thụ nhiệt lớn nhất trong năm hóa đơn 2017
+(FACT, DIM_BOROUGH, DIM_REVENUE_MONTH)
+*/
+SELECT [Measures].[Consumption] on columns,
+TOPCOUNT([DIM BOROUGH].[Borough].[Borough],3,[Measures].[Consumption]) on rows
+FROM [Consumption Gas DW]
+WHERE [DIM REVENUE MONTH].[Year].&[2017];
+
+
+/*
+Câu 4: Thống kê những khu phát triển có số ngày sử dụng gas lớn hơn 150000 ngày
+(FACT, DIM_DEVELOPMENT)
+*/
+SELECT [Measures].[Sum Days] on columns,
+NONEMPTY({FILTER([DIM DEVELOPMENT].[Development Name].children,[Measures].[Sum Days]>150000)}) on rows
+FROM [Consumption Gas DW];
+
+
+/*
+Câu 5: In ra những hình thức mua gas có số ngày sử dụng gas cao nhất với ngày 
+bắt đầu hóa đơn thuộc năm 2015 (FACT, DIM_SERVICE_START_DAY, DIM_ES_COMMODITY)
+*/
+
+SELECT [Measures].[Sum Days] on columns,
+ FILTER([DIM ES COMMODITY].[ES Commodity].[ES Commodity].members,
+ ([Measures].[Sum Days],[DIM SERVICE START DATE].[Year].&[2015]) = [Measures].[Days_Max]) on rows
+FROM [Consumption Gas DW]
+WHERE [DIM SERVICE START DATE].[Year].&[2015];
+
+
+/*
+Câu 6: Thống kê tổng mức tiêu thụ nhiệt của những khu phát triển mà đơn vị cung cấp tiện ích chính
+không phải là "ConEd" (FACT, DIM_DEVELOPMENT, DIM_UNDERLYING_UTILITY)
+*/
+
+SELECT
+NON EMPTY([Measures].[Consumption],[DIM UNDERLYING UTILITY].[Underlying Utility].[Underlying Utility].members) on columns,
+NONEMPTY([DIM DEVELOPMENT].[Development Name].[Development Name].members -
+EXISTS([DIM DEVELOPMENT].[Development Name].[Development Name].members,
+[DIM UNDERLYING UTILITY].[Underlying Utility].&[ConEd],"FACT")) on rows
+FROM [Consumption Gas DW];
+
+
+/*
+Câu 7: Thống kê số ngày sử dụng gas, tổng mức tiêu thụ nhiệt, tổng chi phí hóa đơn theo tháng, quý, năm
+hóa đơn (Revenue_Month) tại các quận của NewYork (FACT, DIM_REVENUE_MONTH)
+*/
+
+SELECT {[Measures].[Sum Days],[Measures].[Consumption],[Measures].[Current Charges]} on columns,
+NONEMPTY(CROSSJOIN([DIM BOROUGH].[Borough].children,[DIM REVENUE MONTH].[Year].[Year],[DIM REVENUE MONTH].[Quarter].[Quarter],
+[DIM REVENUE MONTH].[Month].[Month])) on rows
+FROM [Consumption Gas DW];
+
+
+/*
+Câu 8: Mỗi quý trong ngày hóa đơn của năm 2017, liệt kê 3 khu phát triển có tổng mức tiêu thụ nhiệt lớn nhất
+(FACT, DIM_REVENUE_MONTH, DIM_DEVELOPMENT)
+*/
+
+SELECT [Measures].[Consumption] on columns,
+	GENERATE(DESCENDANTS([DIM REVENUE MONTH].[Year_Quarter_Month_Hierarchy].[Year].&[2017],[DIM REVENUE MONTH].[Year_Quarter_Month_Hierarchy].[Quarter]),
+	TOPCOUNT([DIM REVENUE MONTH].[Quarter].currentmember *[DIM DEVELOPMENT].[Development Name].children,
+	3,[Measures].[Consumption])) on rows
+FROM [Consumption Gas DW]
+WHERE [DIM REVENUE MONTH].[Year].&[2017];
+
+
+/*
+Câu 9: Thống kê các quận có top 3 chi nhánh cung cấp tiện ích có tổng chi phí hóa đơn cao nhất
+(FACT, DIM_BOROUGH, DIM_VENDOR_NAME)
+*/
+
+SELECT [Measures].[Current Charges] on columns,
+NONEMPTY(CROSSJOIN([DIM BOROUGH].[Borough].children,
+		TOPCOUNT([DIM VENDOR NAME].[Vendor Name].children,
+		3,[Measures].[Current Charges]))) on rows
+FROM[Consumption Gas DW];
+
+
+/*
+Câu 10: Truy vấn những quận mà có số lượng hóa đơn được phân tích là "Yes" của những thị trường này cộng lại
+tối thiểu là 100 (Lấy theo thứ tự số lượng tăng dần) hoặc những thị trường mà có số lượng hóa đơn được phân
+tích là "Exception" của thị trường này cộng lại tối thiểu là 150 (lấy theo thứ tự giảm dần)
+(FACT, DIM_BILL_ANALYZED, DIM_BOROUGH)
+*/
+SELECT {([Measures].[Number of Devs],[DIM BILL ANALYZED].[Bill Analyzed].&[Yes]),
+		([Measures].[Number of Devs],[DIM BILL ANALYZED].[Bill Analyzed].&[Exception])} on columns,
+NONEMPTY(UNION({bottomsum([DIM BOROUGH].[Borough].[Borough].members,
+				100,
+				([Measures].[Number of Devs],[DIM BILL ANALYZED].[Bill Analyzed].&[Yes]))},
+				{topsum([DIM BOROUGH].[Borough].[Borough].members,
+				150,
+				([Measures].[Number of Devs],[DIM BILL ANALYZED].[Bill Analyzed].&[Exception]))})) on rows
+FROM [Consumption Gas DW];
+
+
+
+/*
+Câu 11: So sánh tổng nhiệt tiêu thụ của năm hiện tại với năm trước đó của quận "MANHATTAN" là tăng hay giảm theo từng năm
+(FACT, DIM_REVENUE_MONTH, DIM_BOROUGH)
+*/
+
+WITH MEMBER [Measures].[Cau_11] AS
+CASE
+    WHEN IsEmpty(PARALLELPERIOD([DIM REVENUE MONTH].[Year].[Year], 
+        1,[DIM REVENUE MONTH].[Year] ))
+        THEN "Unchanged"
+    WHEN [Measures].[Consumption] >
+        (PARALLELPERIOD([DIM REVENUE MONTH].[Year].[Year],
+        1,[DIM REVENUE MONTH].[Year] ),[Measures].[Consumption])
+        THEN "Increase"
+    WHEN [Measures].[Consumption] =
+        (PARALLELPERIOD([DIM REVENUE MONTH].[Year].[Year],
+        1,[DIM REVENUE MONTH].[Year] ),[Measures].[Consumption])
+        THEN "Unchanged"
+    ELSE "Decrease"
+END
+SELECT {[Measures].[Consumption], [Measures].[Cau_11]} on columns,
+		[DIM REVENUE MONTH].[Year].[Year] on rows
+FROM [Consumption Gas DW]
+WHERE [DIM BOROUGH].[Borough].&[MANHATTAN];
+
+
+
+/*
+Câu 12: Thống kê theo quý, năm tổng lượng tiêu thụ nhiệt ở Newyork của từng đơn vị cung cấp tiện ích chính
+*/
+
+SELECT ([Measures].[Consumption]) on columns,
+	generate([DIM UNDERLYING UTILITY].[Underlying Utility].[Underlying Utility],
+	nonempty(DRILLDOWNLEVEL([DIM REVENUE MONTH].[Year_Quarter_Month_Hierarchy].[Year].members)*
+	[DIM UNDERLYING UTILITY].[Underlying Utility].[Underlying Utility])) on rows
+FROM [Consumption Gas DW];
+
+//Hoặc
+
+SELECT ([Measures].[Consumption],nonempty([DIM UNDERLYING UTILITY].[Underlying Utility].[Underlying Utility])) on columns,
+	nonempty(DRILLDOWNLEVEL([DIM REVENUE MONTH].[Year_Quarter_Month_Hierarchy].[Year].members)) on rows
+FROM [Consumption Gas DW];
+
+
+
+/*
+Câu 13: Thống kê tổng lượng tiêu thụ nhiệt của một bộ dữ liệu truyền vào bằng string
+*/
+SELECT nonempty([Measures].[Consumption]) on columns,
+StrtoSet('nonempty([DIM ES COMMODITY].[ES Commodity].&[UTILITY GAS])')
+on rows
+FROM [Consumption Gas DW];
+
+
+
+/*
+Câu 14: Truy vấn những quận có tổng lượng tiêu thụ nhiệt sắp xếp theo thứ tự giảm dần 
+mà tổng lượng tiêu thụ nhiệt tại những quận này có giá trị tối thiểu là 20% trong năm 2014
+*/
+
+SELECT [Measures].[Consumption] on columns,
+TOPPERCENT({[DIM BOROUGH].[Borough].[Borough].members},20,[Measures].[Consumption]) on rows
+FROM [Consumption Gas DW]
+WHERE [DIM REVENUE MONTH].[Year].&[2014];
+
+
+
+/*
+Câu 15: Kiểm tra tổng lượng tiêu thụ nhiệt lớn nhất tại mỗi quận có lớn hơn 20000 hay không?
+*/
+WITH MEMBER [Measures].[Check] AS
+CASE
+	WHEN [Measures].[Max Consumption]>20000 THEN "TRUE" ELSE "FALSE"
+END
+
+SELECT {[Measures].[Max Consumption],[Measures].[Check]} on columns,
+nonempty([DIM BOROUGH].[Borough].[Borough]) on rows
+FROM [Consumption Gas DW];

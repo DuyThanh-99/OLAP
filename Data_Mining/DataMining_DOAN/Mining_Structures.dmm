@@ -1,0 +1,547 @@
+﻿<MiningStructure xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="06e245fd-8c31-4ceb-82a1-9bf90b20f15a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Mining_Structures</ID>
+  <Name>Mining_Structures</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CaseTableName</Name>
+      <Value>dbo_FACT</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-9325" scrolltop="-2993" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="22818" y="10986" backcolor="16119285" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="FACT" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="4128" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e00002010000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_FACT" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-9325</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-2993</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="7c28656d-ce92-4622-b178-83192d858d8a">
+    <DataSourceViewID>Consumption Gas DW</DataSourceViewID>
+  </Source>
+  <Columns>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="314ed0bb-ec95-43b3-9d64-19df97ef6d84">
+      <ID>Development Name</ID>
+      <Name>Development Name</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <NameColumn dwd:design-time-name="ce62ad33-3c1a-4c87-8908-5d3a60fd0a17">
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0fe227bb-1903-48da-a9d7-c727ae9c0bd3">
+          <TableID>dbo_DIM_DEVELOPMENT</TableID>
+          <ColumnID>Development_Name</ColumnID>
+        </Source>
+      </NameColumn>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="82e5d0c2-787a-4629-8314-df6696cac062">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="de529813-e638-4263-a763-707c45480c3d">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>Dev_Name_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="3b3ed671-1a5f-4a82-a68e-dcce6100317a">
+      <ID>Bill Analyzed ID</ID>
+      <Name>Bill Analyzed ID</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <NameColumn dwd:design-time-name="e5a41603-a5f1-4084-9081-c4c8d8702118">
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e7e8f7a8-3b16-458a-9dad-f89952ba511f">
+          <TableID>dbo_DIM_BILL_ANALYZED</TableID>
+          <ColumnID>Bill_Analyzed</ColumnID>
+        </Source>
+      </NameColumn>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0236545f-b71e-4dfe-96cb-91613cdf0223">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3342020c-a222-48ce-a438-6668e1b6691b">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>Bill_Analyzed_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="6d49553d-bf86-492a-824a-5a4a85aa0138">
+      <ID>Borough ID</ID>
+      <Name>Borough ID</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <NameColumn dwd:design-time-name="6369ee58-4d09-4264-899c-8e65161bb759">
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8cb7af60-ed6c-464f-8c4a-ef85248a95d9">
+          <TableID>dbo_DIM_BOROUGH</TableID>
+          <ColumnID>Borough</ColumnID>
+        </Source>
+      </NameColumn>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f18d316b-71ca-4947-874f-381897842d17">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1b784e7a-f790-4be1-a200-9cb19cb438a8">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>Borough_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="0f006677-1dab-460b-8c8a-d7c859570231">
+      <ID>Dev Name ID</ID>
+      <Name>Dev Name ID</Name>
+      <Type>Long</Type>
+      <Content>Continuous</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="658ed3b0-574f-45cd-b1bc-efee5969a7b2">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8a314ef1-2d69-4374-b41a-cb4896a730a0">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>Dev_Name_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="7493a3a2-1e34-4093-91eb-978b98761fd0">
+      <ID>ES Commodity ID</ID>
+      <Name>ES Commodity ID</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <NameColumn dwd:design-time-name="28292961-d1f1-4314-92d6-637d2affeba5">
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="408deb71-2624-40c3-8250-853d86f07237">
+          <TableID>dbo_DIM_ES_COMMODITY</TableID>
+          <ColumnID>ES_Commodity</ColumnID>
+        </Source>
+      </NameColumn>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="970c7ee1-703a-4cc4-ace3-e66df1154d11">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="57ccbe0d-36a4-443c-8336-62f634bf5666">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>ES_Commodity_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="63e6c1d8-b8ab-488b-a062-4eb69bf89782">
+      <ID>Fact ID</ID>
+      <Name>Fact ID</Name>
+      <IsKey>true</IsKey>
+      <Type>Long</Type>
+      <Content>Key</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6d053e2c-768f-4aa7-b6a7-e8863a364ac0">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f4e8d549-fdd4-49f9-9054-a91a883a26c9">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>Fact_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="04a58282-762e-49b5-a05f-8a251f03530b">
+      <ID>Funding Source ID</ID>
+      <Name>Funding Source ID</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <NameColumn dwd:design-time-name="b5fdc75b-1a47-48fb-98ee-87d2497f09de">
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="89a8f3d4-ab9e-43d9-a026-0e18041439ab">
+          <TableID>dbo_DIM_FUNDING_SOURCE</TableID>
+          <ColumnID>Funding_Source</ColumnID>
+        </Source>
+      </NameColumn>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a1b48eaa-c96f-4ab6-a10c-ed0d13d818c1">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3484d43c-6812-4dda-acae-4b5af260189c">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>Funding_Source_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="c8ac0504-135b-47f1-9dd8-02c833dd4b17">
+      <ID>Underlying Utility ID</ID>
+      <Name>Underlying Utility ID</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <NameColumn dwd:design-time-name="27ef3f57-12ca-4a50-9324-5c317b4c2762">
+        <DataType>WChar</DataType>
+        <DataSize>12</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4affe75d-1312-4c4b-bf4b-80e2d90f88d9">
+          <TableID>dbo_DIM_UNDERLYING_UTILITY</TableID>
+          <ColumnID>Underlying_Utility</ColumnID>
+        </Source>
+      </NameColumn>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d1ab21d9-c712-4d3e-b6c7-f60ced2483ab">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b7bd2479-aa7b-49b2-aaf3-aefee5f3e7be">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>Underlying_Utility_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+  </Columns>
+  <MiningModels>
+    <MiningModel dwd:design-time-name="6105c5b9-347b-4235-b840-5eca70c46211">
+      <ID>TM_Decision_Tree</ID>
+      <Name>TM_Decision_Tree</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Decision_Trees</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="9b113f33-da02-46c7-895a-dcd8e54f4f6b">
+          <ID>Bill Analyzed ID</ID>
+          <Name>Bill Analyzed ID</Name>
+          <SourceColumnID>Bill Analyzed ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="50a2977b-e922-4093-a711-cfb5a42faf15">
+          <ID>Borough ID</ID>
+          <Name>Borough ID</Name>
+          <SourceColumnID>Borough ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="a6b06bff-9a48-4c34-9132-cb72910da264">
+          <ID>ES Commodity ID</ID>
+          <Name>ES Commodity ID</Name>
+          <SourceColumnID>ES Commodity ID</SourceColumnID>
+          <Usage>PredictOnly</Usage>
+        </Column>
+        <Column dwd:design-time-name="917f9ef1-abb6-45e6-aeb5-3d2a019ac49c">
+          <ID>Fact ID</ID>
+          <Name>Fact ID</Name>
+          <SourceColumnID>Fact ID</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="5a290cfb-6b8a-42fc-8eaa-e332719e5371">
+          <ID>Funding Source ID</ID>
+          <Name>Funding Source ID</Name>
+          <SourceColumnID>Funding Source ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="ca986e54-7611-44c1-a91e-0ebc5a2b1344">
+          <ID>Underlying Utility ID</ID>
+          <Name>Underlying Utility ID</Name>
+          <SourceColumnID>Underlying Utility ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="cc40860a-f58f-4afc-b2e3-fd64b3aea954">
+          <ID>Development Name</ID>
+          <Name>Development Name</Name>
+          <SourceColumnID>Development Name</SourceColumnID>
+          <Usage>PredictOnly</Usage>
+        </Column>
+      </Columns>
+      <AllowDrillThrough>true</AllowDrillThrough>
+    </MiningModel>
+    <MiningModel dwd:design-time-name="55db02b5-b552-44ba-a5bc-b8720aa35ede">
+      <ID>TM_Clustering</ID>
+      <Name>TM_Clustering</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Clustering</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="b0fc4487-2884-4e4a-889d-82cd43e01bd2">
+          <ID>Bill Analyzed ID</ID>
+          <Name>Bill Analyzed ID</Name>
+          <SourceColumnID>Bill Analyzed ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="e2007593-cbdf-4266-acba-5fd39167a632">
+          <ID>Borough ID</ID>
+          <Name>Borough ID</Name>
+          <SourceColumnID>Borough ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="f00bb717-f909-4562-9f92-8463af373f4b">
+          <ID>ES Commodity ID</ID>
+          <Name>ES Commodity ID</Name>
+          <SourceColumnID>ES Commodity ID</SourceColumnID>
+          <Usage>PredictOnly</Usage>
+        </Column>
+        <Column dwd:design-time-name="5e58cb64-088f-42a3-87e1-2733a8a3da24">
+          <ID>Fact ID</ID>
+          <Name>Fact ID</Name>
+          <SourceColumnID>Fact ID</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="cbe610f0-161f-4a99-a7e7-7898d742e938">
+          <ID>Funding Source ID</ID>
+          <Name>Funding Source ID</Name>
+          <SourceColumnID>Funding Source ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="1c9ebeac-686d-4a56-bce6-f17b47d6cac7">
+          <ID>Underlying Utility ID</ID>
+          <Name>Underlying Utility ID</Name>
+          <SourceColumnID>Underlying Utility ID</SourceColumnID>
+        </Column>
+      </Columns>
+    </MiningModel>
+    <MiningModel dwd:design-time-name="dc514a3a-5a13-47e2-b444-f333a75cae79">
+      <ID>TM_Naive_Bayes</ID>
+      <Name>TM_Naive_Bayes</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Naive_Bayes</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="4f10a8ee-7aa1-4bf2-ae42-ae9ee8f14ab3">
+          <ID>Bill Analyzed ID</ID>
+          <Name>Bill Analyzed ID</Name>
+          <SourceColumnID>Bill Analyzed ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="126a5706-537c-46bb-a84a-1fb979313293">
+          <ID>Borough ID</ID>
+          <Name>Borough ID</Name>
+          <SourceColumnID>Borough ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="7636439b-a6d3-4a8f-8f8e-78a9aad19462">
+          <ID>ES Commodity ID</ID>
+          <Name>ES Commodity ID</Name>
+          <SourceColumnID>ES Commodity ID</SourceColumnID>
+          <Usage>PredictOnly</Usage>
+        </Column>
+        <Column dwd:design-time-name="d8ecb0fe-9cb7-43d4-9e05-6113e4e69ac5">
+          <ID>Fact ID</ID>
+          <Name>Fact ID</Name>
+          <SourceColumnID>Fact ID</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="dff1206e-6a67-4de5-bec4-1a83575ee821">
+          <ID>Funding Source ID</ID>
+          <Name>Funding Source ID</Name>
+          <SourceColumnID>Funding Source ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="e0391b24-a6c4-4d78-9f86-6471fcad99c2">
+          <ID>Underlying Utility ID</ID>
+          <Name>Underlying Utility ID</Name>
+          <SourceColumnID>Underlying Utility ID</SourceColumnID>
+        </Column>
+      </Columns>
+    </MiningModel>
+    <MiningModel dwd:design-time-name="24d419c9-7751-4adb-a479-44651157f880">
+      <ID>TM_Decision_Tree_Bill_Yes</ID>
+      <Name>TM_Decision_Tree_Bill_Yes</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <Annotations>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Microsoft.AnalysisServices.MiningModel</Name>
+          <Value>
+            <Microsoft.AnalysisServices.MiningModel xmlns="">
+              <Filter>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;MiningModelFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;Items&gt;
+    &lt;FilterGridItem&gt;
+      &lt;IsGroup&gt;false&lt;/IsGroup&gt;
+      &lt;IsDataTable&gt;false&lt;/IsDataTable&gt;
+      &lt;Operator&gt;=&lt;/Operator&gt;
+      &lt;ColumnName&gt;Bill Analyzed ID&lt;/ColumnName&gt;
+      &lt;ColumnID&gt;Bill Analyzed ID&lt;/ColumnID&gt;
+      &lt;Value&gt;Yes&lt;/Value&gt;
+      &lt;AndOr&gt;None&lt;/AndOr&gt;
+      &lt;ChildItems /&gt;
+    &lt;/FilterGridItem&gt;
+    &lt;FilterGridItem&gt;
+      &lt;IsGroup&gt;false&lt;/IsGroup&gt;
+      &lt;IsDataTable&gt;false&lt;/IsDataTable&gt;
+      &lt;ColumnName /&gt;
+      &lt;AndOr&gt;AND&lt;/AndOr&gt;
+      &lt;ChildItems /&gt;
+    &lt;/FilterGridItem&gt;
+  &lt;/Items&gt;
+&lt;/MiningModelFilter&gt;</Filter>
+            </Microsoft.AnalysisServices.MiningModel>
+          </Value>
+        </Annotation>
+      </Annotations>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Decision_Trees</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="bc87e330-ffae-4672-aff4-92bb66916640">
+          <ID>Bill Analyzed ID</ID>
+          <Name>Bill Analyzed ID</Name>
+          <SourceColumnID>Bill Analyzed ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="863e1907-04f7-4067-bf72-6e0ab86fab6e">
+          <ID>Borough ID</ID>
+          <Name>Borough ID</Name>
+          <SourceColumnID>Borough ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="72a61dbe-8c8c-4026-a938-ba87eed32000">
+          <ID>ES Commodity ID</ID>
+          <Name>ES Commodity ID</Name>
+          <SourceColumnID>ES Commodity ID</SourceColumnID>
+          <Usage>PredictOnly</Usage>
+        </Column>
+        <Column dwd:design-time-name="db1dc29a-70a4-42c7-aac5-21813d10be4c">
+          <ID>Fact ID</ID>
+          <Name>Fact ID</Name>
+          <SourceColumnID>Fact ID</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="1e9ece9e-160e-4d75-ac60-580c30c88c8e">
+          <ID>Funding Source ID</ID>
+          <Name>Funding Source ID</Name>
+          <SourceColumnID>Funding Source ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="154947ea-91e3-4d9d-a3dd-3b17a5ea56ac">
+          <ID>Underlying Utility ID</ID>
+          <Name>Underlying Utility ID</Name>
+          <SourceColumnID>Underlying Utility ID</SourceColumnID>
+        </Column>
+      </Columns>
+      <ddl100_100:Filter>[Bill Analyzed ID] = 'Yes'</ddl100_100:Filter>
+    </MiningModel>
+    <MiningModel dwd:design-time-name="4c3bc532-24e3-4d3f-b5a5-4f2ffde835a9">
+      <ID>TM_Decision_Tree_Bill_Exception</ID>
+      <Name>TM_Decision_Tree_Bill_Exception</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <Annotations>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Microsoft.AnalysisServices.MiningModel</Name>
+          <Value>
+            <Microsoft.AnalysisServices.MiningModel xmlns="">
+              <Filter>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;MiningModelFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;Items&gt;
+    &lt;FilterGridItem&gt;
+      &lt;IsGroup&gt;false&lt;/IsGroup&gt;
+      &lt;IsDataTable&gt;false&lt;/IsDataTable&gt;
+      &lt;Operator&gt;=&lt;/Operator&gt;
+      &lt;ColumnName&gt;Bill Analyzed ID&lt;/ColumnName&gt;
+      &lt;ColumnID&gt;Bill Analyzed ID&lt;/ColumnID&gt;
+      &lt;Value&gt;Exception&lt;/Value&gt;
+      &lt;AndOr&gt;None&lt;/AndOr&gt;
+      &lt;ChildItems /&gt;
+    &lt;/FilterGridItem&gt;
+    &lt;FilterGridItem&gt;
+      &lt;IsGroup&gt;false&lt;/IsGroup&gt;
+      &lt;IsDataTable&gt;false&lt;/IsDataTable&gt;
+      &lt;ColumnName /&gt;
+      &lt;AndOr&gt;AND&lt;/AndOr&gt;
+      &lt;ChildItems /&gt;
+    &lt;/FilterGridItem&gt;
+  &lt;/Items&gt;
+&lt;/MiningModelFilter&gt;</Filter>
+            </Microsoft.AnalysisServices.MiningModel>
+          </Value>
+        </Annotation>
+      </Annotations>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Decision_Trees</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="fd1f96f9-0902-4f7a-947f-79d254414526">
+          <ID>Bill Analyzed ID</ID>
+          <Name>Bill Analyzed ID</Name>
+          <SourceColumnID>Bill Analyzed ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="f3d07b11-12e2-4ddd-9b33-e34782af7592">
+          <ID>Borough ID</ID>
+          <Name>Borough ID</Name>
+          <SourceColumnID>Borough ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="31355b8e-b558-442f-a07b-f9e92b06a9e5">
+          <ID>ES Commodity ID</ID>
+          <Name>ES Commodity ID</Name>
+          <SourceColumnID>ES Commodity ID</SourceColumnID>
+          <Usage>PredictOnly</Usage>
+        </Column>
+        <Column dwd:design-time-name="35e918df-2a2e-47cd-bd23-ab5ade385da6">
+          <ID>Fact ID</ID>
+          <Name>Fact ID</Name>
+          <SourceColumnID>Fact ID</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="3be72d7c-45b1-4c9e-a315-68f27cdcd5ab">
+          <ID>Funding Source ID</ID>
+          <Name>Funding Source ID</Name>
+          <SourceColumnID>Funding Source ID</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="875e6282-bec2-4174-8d28-49dee0132174">
+          <ID>Underlying Utility ID</ID>
+          <Name>Underlying Utility ID</Name>
+          <SourceColumnID>Underlying Utility ID</SourceColumnID>
+        </Column>
+      </Columns>
+      <ddl100_100:Filter>[Bill Analyzed ID] = 'Exception'</ddl100_100:Filter>
+    </MiningModel>
+  </MiningModels>
+  <ddl100_100:HoldoutMaxPercent>30</ddl100_100:HoldoutMaxPercent>
+  <ddl100_100:HoldoutMaxCases>1000</ddl100_100:HoldoutMaxCases>
+</MiningStructure>

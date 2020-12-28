@@ -1,0 +1,10 @@
+Thông tin sinh viên:
+
+Họ và tên:
+Tạ Duy Thanh |MSSV: 17521058
+Công việc: Xây dựng Data Warehouse, SSIS, SSAS, SSRS, Data_mining 
+viết báo cáo, quay video
+
+Hồ Công Sơn  |MSSV: 17520986
+Công việc: Xây dựng Data Warehouse, SSIS, SSAS, SSRS, Data_mining 
+viết báo cáo, quay video

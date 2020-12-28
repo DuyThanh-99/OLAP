@@ -1,0 +1,152 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>SSAS_DOAN</Database>
+    <Server>DESKTOP-8M2NJ75</Server>
+    <ConnectionString>Data Source=DESKTOP-8M2NJ75;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>MMhEPFYNmqTWhvPJLNnOS7D67LY=11/14/2019 8:21:35 PM11/14/2019 8:21:35 PM</TimeStamp>
+        <ID>
+          <String>Consumption Gas DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>9bSlpslOxKoXCOuJD0yLN5xyyKM=11/14/2019 8:21:45 PM11/14/2019 8:21:45 PM</TimeStamp>
+        <ID>
+          <String>Consumption Gas DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>2A1lsZ6rhp8+Ee1yn1BI0pzylvo=11/14/2019 8:24:14 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM METER AMR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>e+1n+319oySvsWekGna6ouHOi9E=11/14/2019 8:24:14 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM RATE CLASS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>VE2cg5bRaT+Q5R6VwYBevAL2oss=11/14/2019 8:24:14 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM UNDERLYING UTILITY</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>OJPrIIF+i94TAMq+Vlh+h6TLEiA=11/14/2019 8:24:14 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM ES COMMODITY</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+60T+ZxQgpAO/I3wC0RExFwxPFk=11/14/2019 8:24:14 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM FUNDING SOURCE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>lJm+sbJ16aiWV4AK0sWYYiYLxlE=11/14/2019 8:24:14 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM TDS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>jzd7zAIOQ85E1mbl1IpqruQY8c0=11/14/2019 8:24:14 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM BILL ANALYZED</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>M+7sryR/fHyzdh+N6B5U3WXB/o0=11/16/2019 4:39:27 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM REVENUE MONTH</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Met7IcTjGl8bQ7u2m3amFiqdN+U=11/14/2019 8:24:14 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM VENDOR NAME</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>AESB2rr2GmAN3E48US22I6+LtD8=11/14/2019 8:24:14 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM DEVELOPMENT</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+9zqGaHAY16/3vKr4m9uIsM1hbk=11/14/2019 8:24:14 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM BOROUGH</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>gQv+JgqwN5wm0xMuPEmbEJm5/vM=11/14/2019 8:56:44 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM SERVICE START DATE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>QZgsWr8Hv1/vGYpUDnEhQUHJ3sM=11/14/2019 8:57:44 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM SERVICE END DATE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>LaAepalFmdSRkr4YQZJyUJoAoMc=11/14/2019 8:24:14 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>DIM LOCATION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>fcNdhKCAgSbq8mWSmmvgZgiyzaQ=12/21/2019 7:39:02 PM11/14/2019 8:22:38 PMtbNXgDw2w5gUWnxxleq3p5q93JQ=11/14/2019 8:48:29 PM11/14/2019 8:22:38 PM</TimeStamp>
+        <ID>
+          <String>Consumption Gas DW</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>l2IaX8CE8SgrdZaZWqlS1O//F6E=11/14/2019 8:21:05 PM11/14/2019 8:21:05 PM</TimeStamp>
+      <ID>
+        <String>SSAS_DOAN</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2019-12-21T12:39:04.556667Z</LastDeployed>
+</DeploymentSnapshot>
